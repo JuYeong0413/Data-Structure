@@ -55,8 +55,8 @@ throw (logic_error)
 		cout << "Failed -- List is full." << endl;
 	}
 	else { // insert newDataItem
-		if (isEmpty()) cursor = -1; // remove·Î list°¡ ºñ¿öÁø °æ¿ì cursorÀÇ À§Ä¡´Â 0ÀÌ µÇ±â ¶§¹®¿¡
-									// cursorÀÇ À§Ä¡¸¦ Á¦´ë·Î ¸ÂÃçÁÖ±â À§ÇÔ
+		if (isEmpty()) cursor = -1; // removeë¡œ listê°€ ë¹„ì›Œì§„ ê²½ìš° cursorì˜ ìœ„ì¹˜ëŠ” 0ì´ ë˜ê¸° ë•Œë¬¸ì—
+									// cursorì˜ ìœ„ì¹˜ë¥¼ ì œëŒ€ë¡œ ë§žì¶°ì£¼ê¸° ìœ„í•¨
 		cursor++;
 		dataItems[cursor] = newDataItem;
 		size++; // increase size
@@ -79,13 +79,13 @@ void List::remove() throw (logic_error)
 	else {
 		if (cursor == size - 1) { // if the cursor is pointing the last element
 			dataItems[cursor] = NULL; // remove the data item
-			cursor = 0; // last list data item ´ÙÀ½Àº first list data itemÀÌ±â ¶§¹®¿¡
-						// cursorÀ» 0À¸·Î ¿Å°ÜÁØ´Ù.
+			cursor = 0; // last list data item ë‹¤ìŒì€ first list data itemì´ê¸° ë•Œë¬¸ì—
+						// cursorì„ 0ìœ¼ë¡œ ì˜®ê²¨ì¤€ë‹¤.
 		}
 		else {
 			dataItems[cursor] = NULL; // remove the data item
 			for (int i = cursor; i < size - 1; i++) {
-				// data itemÀ» ÇÏ³ª¾¿ ¾ÕÀ¸·Î ¿Å±ä´Ù.
+				// data itemì„ í•˜ë‚˜ì”© ì•žìœ¼ë¡œ ì˜®ê¸´ë‹¤.
 				dataItems[i] = dataItems[i + 1];
 				dataItems[i + 1] = NULL;
 			}
@@ -290,7 +290,7 @@ bool List::find(const DataType &searchDataItem) throw (logic_error)
 			}
 			else {
 				cursor = i; // move the cursor to the data item visited
-							// (cursor°¡ last data item visited¿¡ À§Ä¡ÇØ¾ß ÇÏ±â ¶§¹®¿¡ °è¼Ó ¿Å°ÜÁØ´Ù)
+							// (cursorê°€ last data item visitedì— ìœ„ì¹˜í•´ì•¼ í•˜ê¸° ë•Œë¬¸ì— ê³„ì† ì˜®ê²¨ì¤€ë‹¤)
 			}
 		}
 		return 0; // if data item is not found, return 0
