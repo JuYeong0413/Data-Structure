@@ -63,7 +63,7 @@ int Calcul(char* postfix)
 
 		i++; // increase loop
 
-	} while (postfix[i] != '\0'); // Å½»ö Á¾·á Á¶°Ç
+	} while (postfix[i] != '\0'); // Ã…Â½Â»Ã¶ ÃÂ¾Â·Ã¡ ÃÂ¶Â°Ã‡
 
 	return calc.pop() - '0'; // return value (integer type)
 
