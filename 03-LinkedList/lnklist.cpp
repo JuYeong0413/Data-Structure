@@ -47,8 +47,8 @@ void List<DT>::insert(const DT &newData)
 			cursor = newItem;
 		}
 		else { // insert newDataItem in the middle of the list
-			newItem->next = cursor->next; // newItemÀÌ ´ÙÀ½ data itemÀ» °¡¸®Å°µµ·Ï ¼³Á¤
-			cursor->next = newItem; // cursorÀÇ next data itemÀÌ newDataItemÀÌ µÇµµ·Ï ¼³Á¤
+			newItem->next = cursor->next; // newItemì´ ë‹¤ìŒ data itemì„ ê°€ë¦¬í‚¤ë„ë¡ ì„¤ì •
+			cursor->next = newItem; // cursorì˜ next data itemì´ newDataItemì´ ë˜ë„ë¡ ì„¤ì •
 			cursor = newItem; // move the cursor to newDataItem
 		}
 	}
@@ -73,34 +73,34 @@ void List<DT>::remove()
 		tempPtr1 = head;
 		tempPtr2 = cursor;
 
-		if (head == cursor) { // listÀÇ ¸Ç ¾Õ data itemÀ» removeÇÏ´Â °æ¿ì
+		if (head == cursor) { // listì˜ ë§¨ ì• data itemì„ removeí•˜ëŠ” ê²½ìš°
 			if (head->next == NULL) { // if there is only one data item in the list
 				delete tempPtr2; // remove data item
 				head = NULL;
 				cursor = NULL;
 			}
 			else {
-				cursor = cursor->next; // cursorÀ» ÇÑ Ä­ ÀÌµ¿
+				cursor = cursor->next; // cursorì„ í•œ ì¹¸ ì´ë™
 				head = cursor;
 				tempPtr1->next = NULL;
 				tempPtr2 = NULL;
 				delete tempPtr2; // remove data item
 			}
 		}
-		else if (cursor->next == NULL) { // remove ÇÏ·Á´Â data itemÀÌ listÀÇ ¸Ç ³¡¿¡ ÀÖÀ» °æ¿ì
-			while (tempPtr1->next != tempPtr2) { // tempPtr1ÀÌ cursor ¾ÕÀÇ data itemÀ» °¡¸®Å°µµ·Ï ÇÑ´Ù.
+		else if (cursor->next == NULL) { // remove í•˜ë ¤ëŠ” data itemì´ listì˜ ë§¨ ëì— ìˆì„ ê²½ìš°
+			while (tempPtr1->next != tempPtr2) { // tempPtr1ì´ cursor ì•ì˜ data itemì„ ê°€ë¦¬í‚¤ë„ë¡ í•œë‹¤.
 				tempPtr1 = tempPtr1->next;
 			}
-			gotoBeginning(); // cursorÀÇ À§Ä¡¸¦ ¸Ç ¾ÕÀ¸·Î ¿Å±ä´Ù.
+			gotoBeginning(); // cursorì˜ ìœ„ì¹˜ë¥¼ ë§¨ ì•ìœ¼ë¡œ ì˜®ê¸´ë‹¤.
 			tempPtr1->next = NULL;
 			delete tempPtr2; // remove data item
 		}
-		else { // remove ÇÏ·Á´Â data itemÀÌ listÀÇ Áß°£¿¡ ÀÖÀ» °æ¿ì
-			while (tempPtr1->next != tempPtr2) { // tempPtr1ÀÌ cursor ¾ÕÀÇ data itemÀ» °¡¸®Å°µµ·Ï ÇÑ´Ù.
+		else { // remove í•˜ë ¤ëŠ” data itemì´ listì˜ ì¤‘ê°„ì— ìˆì„ ê²½ìš°
+			while (tempPtr1->next != tempPtr2) { // tempPtr1ì´ cursor ì•ì˜ data itemì„ ê°€ë¦¬í‚¤ë„ë¡ í•œë‹¤.
 				tempPtr1 = tempPtr1->next;
 			}
-			tempPtr1->next = tempPtr2->next; // tempPtr1ÀÌ cursor ´ÙÀ½ÀÇ data itemÀ» °¡¸®Å°µµ·Ï ÇÑ´Ù.
-			cursor = cursor->next; // cursorÀ» ÇÑ Ä­ ÀÌµ¿
+			tempPtr1->next = tempPtr2->next; // tempPtr1ì´ cursor ë‹¤ìŒì˜ data itemì„ ê°€ë¦¬í‚¤ë„ë¡ í•œë‹¤.
+			cursor = cursor->next; // cursorì„ í•œ ì¹¸ ì´ë™
 			tempPtr2->next = NULL;
 			delete tempPtr2; // remove data item
 		}
@@ -136,11 +136,11 @@ void List<DT>::clear()
 	}
 	else {
 		ListNode<DT>* tempPtr = new ListNode<DT>(NULL, NULL);
-		cursor = head; // ¾ÕºÎÅÍ remove ÇÏ±â À§ÇØ cursorÀÇ À§Ä¡¸¦ head·Î ÀÌµ¿
+		cursor = head; // ì•ë¶€í„° remove í•˜ê¸° ìœ„í•´ cursorì˜ ìœ„ì¹˜ë¥¼ headë¡œ ì´ë™
 
 		while (cursor->next != NULL) {
 			tempPtr = cursor;
-			cursor = cursor->next; // ´ÙÀ½ data itemÀ» remove ÇÏ±â À§ÇØ cursor ÀÌµ¿
+			cursor = cursor->next; // ë‹¤ìŒ data itemì„ remove í•˜ê¸° ìœ„í•´ cursor ì´ë™
 			tempPtr->next = NULL;
 			delete tempPtr; // remove data item
 		}
@@ -241,7 +241,7 @@ bool List<DT>::gotoPrior()
 	else {
 		ListNode<DT>* location = new ListNode<DT>(NULL, NULL);
 		location = head;
-		while (location->next != cursor) { // locationÀÌ cursor ÀüÀÇ data itemÀ» °¡¸®Å°µµ·Ï ÇÑ´Ù.
+		while (location->next != cursor) { // locationì´ cursor ì „ì˜ data itemì„ ê°€ë¦¬í‚¤ë„ë¡ í•œë‹¤.
 			location = location->next;
 		}
 		cursor = location;
@@ -328,19 +328,19 @@ void List<DT>::insertBefore(const DT &newDataItem)
 		ListNode<DT>* newItem = new ListNode<DT>(NULL, NULL);
 		newItem->dataItem = newDataItem;
 
-		if (head == cursor) { // ¸¸¾à newItemÀ» listÀÇ ¸Ç ¾Õ¿¡ insert ÇÏ´Â °æ¿ì
+		if (head == cursor) { // ë§Œì•½ newItemì„ listì˜ ë§¨ ì•ì— insert í•˜ëŠ” ê²½ìš°
 			newItem->next = cursor;
 			head = newItem;
 		}
 		else {
 			ListNode<DT>* location = new ListNode<DT>(NULL, NULL);
 			location = head;
-			while (location->next != cursor) { // locationÀÌ cursor ÀüÀÇ data itemÀ» °¡¸®Å°µµ·Ï ÇÑ´Ù.
+			while (location->next != cursor) { // locationì´ cursor ì „ì˜ data itemì„ ê°€ë¦¬í‚¤ë„ë¡ í•œë‹¤.
 				location = location->next;
 			}
 
-			newItem->next = cursor; // newDataItemÀÇ next data itemÀÌ cursor°¡ °¡¸®Å°´Â data itemÀ¸·Î ¼³Á¤
-			location->next = newItem; // cursor ÀüÀÇ data itemÀÌ newDataItemÀ» °¡¸®Å°µµ·Ï ¼³Á¤
+			newItem->next = cursor; // newDataItemì˜ next data itemì´ cursorê°€ ê°€ë¦¬í‚¤ëŠ” data itemìœ¼ë¡œ ì„¤ì •
+			location->next = newItem; // cursor ì „ì˜ data itemì´ newDataItemì„ ê°€ë¦¬í‚¤ë„ë¡ ì„¤ì •
 		}
 
 		cursor = newItem; // move the cursor to newDataItem
