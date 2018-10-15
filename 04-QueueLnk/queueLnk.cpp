@@ -68,7 +68,7 @@ void Queue<QE>::enqueue(const QE &newElement)
 			front = newNode;
 		}
 		else {
-			rear->next = newNode; // newElement insert ÇÏ±â ÀüÀÇ rearÀÇ next´Â newNode¸¦ point
+			rear->next = newNode; // newElement insert í•˜ê¸° ì „ì˜ rearì˜ nextëŠ” newNodeë¥¼ point
 		}
 
 		rear = newNode; // rear should point newNode
@@ -127,7 +127,7 @@ void Queue<QE>::clear()
 
 		while (front != NULL) {
 			tempPtr = front;
-			front = front->next; // ´ÙÀ½ element¸¦ remove ÇÏ±â À§ÇØ front ÀÌµ¿
+			front = front->next; // ë‹¤ìŒ elementë¥¼ remove í•˜ê¸° ìœ„í•´ front ì´ë™
 			tempPtr->next = NULL;
 			delete tempPtr; // remove element
 		}
