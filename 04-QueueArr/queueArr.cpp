@@ -95,11 +95,11 @@ void Queue<QE>::clear()
 	if (empty()) cout << "Queue is already empty" << endl;
 	else {
 		for (int i = 0; i <= rear; i++) {
-			element[i] = NULL; // element ÃÊ±âÈ­
+			element[i] = NULL; // element ì´ˆê¸°í™”
 		}
 
-		front = maxSize - 1; // front index ÃÊ±âÈ­
-		rear = maxSize - 1; // rear index ÃÊ±âÈ­
+		front = maxSize - 1; // front index ì´ˆê¸°í™”
+		rear = maxSize - 1; // rear index ì´ˆê¸°í™”
 	}
 }
 
@@ -168,7 +168,7 @@ void Queue<QE>::putFront(const QE &newDataItem)
 	if (full()) cout << "Queue is full" << endl; // if queue is full
 	else {
 		element[front] = newDataItem; // insert newDataItem
-		front = (front + 8) % maxSize; // front¿¡ insert ÇßÀ¸¹Ç·Î front index ÀÌµ¿
+		front = (front + 8) % maxSize; // frontì— insert í–ˆìœ¼ë¯€ë¡œ front index ì´ë™
 	}
 }
 
@@ -187,7 +187,7 @@ QE Queue<QE>::getRear()
 	else {
 		QE temp = element[rear];
 		element[rear] = NULL; // remove element
-		rear = (rear + 8) % maxSize; // rear¿¡¼­ element¸¦ remove ÇßÀ¸¹Ç·Î rear index ÀÌµ¿
+		rear = (rear + 8) % maxSize; // rearì—ì„œ elementë¥¼ remove í–ˆìœ¼ë¯€ë¡œ rear index ì´ë™
 		return temp;
 	}
 }
@@ -201,9 +201,9 @@ int Queue<QE>::getLength()
 	//In-Lab. 3
 	int length; // length variable
 	if (empty()) length = 0; // if queue is empty, length is zero
-	else if (front >= rear) // front index°¡ rear indexº¸´Ù °°°Å³ª Å¬ ¶§
+	else if (front >= rear) // front indexê°€ rear indexë³´ë‹¤ ê°™ê±°ë‚˜ í´ ë•Œ
 		length = maxSize - (front - rear);
-	else // front index°¡ rear indexº¸´Ù ÀÛÀ» ¶§
+	else // front indexê°€ rear indexë³´ë‹¤ ì‘ì„ ë•Œ
 		length = rear - front;
 	return length;
 }
