@@ -1,5 +1,6 @@
 # Data-Structure
-2018-2 자료구조와실습(Data Stucture) 수업 실습자료
+2018-2 자료구조와실습(Data Stucture) 수업 실습자료  
+:trophy: 강좌수석  
   
 ### 실습내용
 1. List
